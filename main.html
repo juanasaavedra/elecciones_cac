@@ -253,7 +253,7 @@
 
     <!-- LÓGICA DE JAVASCRIPT -->
     <script>
-        // Mapeo dinámico de carreras y sus respectivos archivos PDF
+        // Mapeo dinámico de carreras con los nombres EXACTOS de tus archivos en el repositorio
         const pdfCatalog = {
             diee: {
                 name: "DIEE - Ingeniería Eléctrica y Electrónica",
@@ -262,23 +262,23 @@
             },
             civil: {
                 name: "Ingeniería Civil",
-                pdf: "pdfs/Plancha_IngCivil.pdf",
-                fileName: "Plancha_IngCivil.pdf"
+                pdf: "pdfs/Plancha4_Fabian_Heyder_IngCivil.pdf",
+                fileName: "Plancha4_Fabian_Heyder_IngCivil.pdf"
             },
             mecanica: {
                 name: "Ingeniería Mecánica",
-                pdf: "pdfs/Plan_de_Trabajo_IngMecanica.pdf",
-                fileName: "Plan_de_Trabajo_IngMecanica.pdf"
+                pdf: "pdfs/Plan_de_Trabajo_Plancha1_IngMecanica.pdf",
+                fileName: "Plan_de_Trabajo_Plancha1_IngMecanica.pdf"
             },
             mecatronica: {
                 name: "Ingeniería Mecatrónica",
-                pdf: "pdfs/Plan_de_Trabajo_Mecatronica.pdf",
-                fileName: "Plan_de_Trabajo_Mecatronica.pdf"
+                pdf: "pdfs/Plan de trabajo Placha 2 Mecatrónica Javier y Breiner.pdf",
+                fileName: "Plan de trabajo Placha 2 Mecatrónica Javier y Breiner.pdf"
             },
             quimica: {
                 name: "Ingeniería Química",
-                pdf: "pdfs/Programa_de_Trabajo_IngQuimica.pdf",
-                fileName: "Programa_de_Trabajo_IngQuimica.pdf"
+                pdf: "pdfs/Programa de trabajo_IngQuimica.pdf",
+                fileName: "Programa de trabajo_IngQuimica.pdf"
             }
         };
 
@@ -287,9 +287,12 @@
             const data = pdfCatalog[key];
             if (!data) return;
 
+            // encodeURI convierte los espacios y caracteres especiales para que GitHub Pages los cargue sin error 404
+            const safePdfUrl = encodeURI(data.pdf);
+
             // 1. Actualizar Iframe
             const iframe = document.getElementById('pdfIframe');
-            iframe.src = data.pdf;
+            iframe.src = safePdfUrl;
 
             // 2. Actualizar títulos y rutas
             document.getElementById('currentPdfTitle').textContent = data.name;
@@ -297,7 +300,7 @@
 
             // 3. Actualizar enlace de descarga
             const downloadBtn = document.getElementById('downloadBtn');
-            downloadBtn.href = data.pdf;
+            downloadBtn.href = safePdfUrl;
             downloadBtn.setAttribute('download', data.fileName);
         }
 
