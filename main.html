@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,162 +31,122 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Estilo de entrada y selector Studio Template */
-        .studio-input {
+        /* Estilo de selector minimalista estilo Studio */
+        .studio-select {
             width: 100%;
             background: transparent;
             border: none;
             border-bottom: 2px solid #000000;
             padding: 0.85rem 0;
             font-weight: 700;
-            font-size: 1.125rem;
             color: #000000;
             border-radius: 0;
             outline: none;
-            transition: border-color 0.2s ease, padding 0.2s ease;
-        }
-
-        .studio-input:focus {
-            border-bottom-width: 3px;
-        }
-
-        /* Selector desplegable con icono minimalista */
-        select.studio-input {
             -webkit-appearance: none;
             -moz-appearance: none;
             appearance: none;
             background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
             background-repeat: no-repeat;
-            background-position: right 0.5rem center;
-            padding-right: 2.5rem;
+            background-position: right 0.25rem center;
+            padding-right: 2rem;
             cursor: pointer;
+            transition: border-color 0.2s ease;
         }
 
-        /* Botón estilo píldora Studio */
-        .studio-btn-pill {
-            background-color: #000000;
-            color: #ffffff;
-            font-weight: 700;
-            font-size: 0.875rem;
-            padding: 0.85rem 2.25rem;
-            border-radius: 9999px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.2s ease;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        .studio-select:focus {
+            border-bottom-width: 3px;
         }
 
-        .studio-btn-pill:hover {
-            background-color: #262626;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        /* Animación suave para botón CTA */
+        .btn-votar-hero {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
         }
-
-        .studio-btn-outline {
-            border: 1.5px solid #000000;
-            color: #000000;
-            font-weight: 600;
-            font-size: 0.875rem;
-            padding: 0.75rem 1.75rem;
-            border-radius: 9999px;
-            transition: all 0.2s ease;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .studio-btn-outline:hover {
-            background-color: #000000;
-            color: #ffffff;
+        .btn-votar-hero:active {
+            transform: scale(0.98);
         }
     </style>
 </head>
 <body class="min-h-screen flex flex-col justify-between selection:bg-black selection:text-white">
 
-    <!-- HEADER ESTILO STUDIO / AGENCY -->
-    <header class="w-full border-b border-neutral-200 py-6 px-6 md:px-16 bg-white sticky top-0 z-50">
+    <!-- HEADER DE NAVEGACIÓN MOBILE-FIRST -->
+    <header class="w-full border-b border-neutral-200 py-4 px-4 sm:px-8 md:px-16 bg-white sticky top-0 z-50">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <!-- Menú Izquierda -->
-            <nav class="hidden md:flex items-center space-x-8 text-xs font-semibold text-neutral-600 tracking-wide uppercase">
-                <span class="text-black font-extrabold">Elecciones CAC</span>
-                <a href="#selector-seccion" class="hover:text-black transition">Propuestas</a>
-                <a href="#visor-seccion" class="hover:text-black transition">Plan de Trabajo</a>
-            </nav>
+            
+            <!-- Marca/Título -->
+            <a href="#" class="text-lg sm:text-2xl font-black tracking-tighter uppercase font-sans">
+                ELECCIONES CAC
+            </a>
 
-            <!-- Titular Central -->
-            <div class="text-center">
-                <a href="#" class="text-xl md:text-2xl font-black tracking-tighter uppercase font-sans">
-                    ELECCIONES CAC
-                </a>
-            </div>
-
-            <!-- Acciones Derecha -->
-            <div class="flex items-center space-x-4">
-                <span class="text-xs font-mono border border-black px-3.5 py-1.5 rounded-full hidden sm:inline-block font-semibold">
-                    29 OCTUBRE
+            <!-- Acciones / Fecha -->
+            <div class="flex items-center space-x-2 sm:space-x-4">
+                <span class="text-[10px] sm:text-xs font-mono border border-black px-2.5 sm:px-3.5 py-1 rounded-full font-bold uppercase">
+                    29 Octubre
                 </span>
-                <a href="https://procesofibog.unal.edu.co/sefi/login" target="_blank" rel="noopener noreferrer" class="studio-btn-pill text-xs px-5 py-2.5">
-                    Ir a Votar
+                <a href="https://procesofibog.unal.edu.co/sefi/login" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="bg-black text-white text-xs font-extrabold px-4 py-2 rounded-full hover:bg-neutral-800 transition">
+                    Votar
                 </a>
             </div>
         </div>
     </header>
 
-    <!-- CONTENIDO PRINCIPAL -->
-    <main class="max-w-7xl mx-auto w-full px-6 md:px-16 py-12 md:py-20 flex-grow space-y-16">
+    <!-- CONTENIDO PRINCIPAL MOBILE-FIRST -->
+    <main class="max-w-7xl mx-auto w-full px-4 sm:px-8 md:px-16 py-8 sm:py-14 flex-grow space-y-12 sm:space-y-16">
         
         <!-- SECCIÓN HERO -->
-        <section class="space-y-4 max-w-4xl">
-            <div class="inline-block border border-black px-3.5 py-1 rounded-full text-xs font-mono tracking-wider uppercase mb-2">
+        <section class="space-y-4">
+            <div class="inline-block border border-black px-3 py-1 rounded-full text-[11px] sm:text-xs font-mono tracking-wider uppercase font-semibold">
                 Consejo Académico de Carrera
             </div>
-            <h1 class="text-6xl sm:text-7xl md:text-8xl font-black tracking-tighter text-black uppercase leading-none">
+            
+            <h1 class="text-4xl sm:text-7xl md:text-8xl font-black tracking-tighter text-black uppercase leading-tight sm:leading-none">
                 Elecciones CAC
             </h1>
-            <p class="text-lg md:text-xl font-medium text-neutral-600 tracking-tight pt-2">
+            
+            <p class="text-base sm:text-xl font-medium text-neutral-600 tracking-tight pt-1">
                 Jornada de votación: <strong class="text-black underline underline-offset-4">29 de Octubre</strong>
             </p>
         </section>
 
-        <!-- SECCIÓN SELECTOR DE PROPUESTAS -->
-        <section id="selector-seccion" class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 pt-8 border-t border-black">
+        <!-- SECCIÓN DE SELECCIÓN Y BOTÓN PRINCIPAL -->
+        <section id="selector-seccion" class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 pt-6 sm:pt-8 border-t border-black">
             
-            <!-- DETALLES E INSTRUCCIONES IZQUIERDA -->
-            <div class="lg:col-span-4 space-y-8 text-sm">
+            <!-- INSTRUCCIONES / DETALLES -->
+            <div class="lg:col-span-4 space-y-6 text-sm">
                 <div>
-                    <p class="font-mono text-xs uppercase text-neutral-400 mb-1">Fecha oficial</p>
-                    <p class="font-bold text-lg text-black">29 de Octubre</p>
+                    <p class="font-mono text-xs uppercase text-neutral-400 mb-1">Jornada oficial</p>
+                    <p class="font-black text-xl text-black">29 de Octubre</p>
                 </div>
 
                 <div>
                     <p class="font-mono text-xs uppercase text-neutral-400 mb-1">Instrucciones</p>
-                    <p class="text-neutral-700 leading-relaxed">
-                        Selecciona la carrera o plancha correspondiente en el desplegable para consultar la propuesta y plan de trabajo.
+                    <p class="text-neutral-700 leading-relaxed text-sm sm:text-base">
+                        Selecciona tu carrera o plancha en el menú desplegable para consultar la propuesta y luego haz clic en el botón para ingresar a la plataforma de votación.
                     </p>
                 </div>
 
-                <div class="p-5 bg-neutral-50 border border-neutral-200 rounded-2xl space-y-2">
-                    <p class="text-xs font-bold text-black uppercase tracking-wider">📌 Sistema SEFI UNAL</p>
+                <div class="p-4 bg-neutral-50 border border-neutral-200 rounded-xl space-y-1.5">
+                    <p class="text-xs font-bold text-black uppercase tracking-wider">📌 Plataforma oficial de votación</p>
                     <p class="text-xs text-neutral-600 leading-normal">
-                        Para ejercer tu voto debes autenticarte en el portal oficial SEFI con tus credenciales institucionales.
+                        Ingresa con tus credenciales institucionales para hacer efectivo tu voto en la plataforma oficial.
                     </p>
                 </div>
             </div>
 
-            <!-- FORMULARIO SELECTOR -->
-            <div class="lg:col-span-8 space-y-10">
+            <!-- FORMULARIO Y CTA DE VOTACIÓN -->
+            <div class="lg:col-span-8 space-y-8">
                 
                 <form onsubmit="event.preventDefault();" class="space-y-8">
                     
-                    <!-- CAMPO SELECTOR DE CARRERA -->
-                    <div class="space-y-3">
+                    <!-- SELECTOR DE CARRERA -->
+                    <div class="space-y-2">
                         <label for="careerSelect" class="block text-xs font-extrabold uppercase tracking-widest text-black">
                             Selecciona tu Carrera / Plancha
                         </label>
                         
-                        <!-- SELECTOR INTERACTIVO -->
-                        <select id="careerSelect" onchange="onCareerChange(this.value)" class="studio-input">
+                        <select id="careerSelect" onchange="onCareerChange(this.value)" class="studio-select text-base sm:text-xl">
                             <option value="diee" selected>DIEE - Ingeniería Eléctrica y Electrónica</option>
                             <option value="civil">Ingeniería Civil</option>
                             <option value="mecanica1">Ingeniería Mecánica - Plancha 1</option>
@@ -196,13 +156,20 @@
                         </select>
                     </div>
 
-                    <!-- BOTONES DE ACCIÓN PRINCIPALES -->
-                    <div id="votacion" class="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-                        <a id="submitVoteBtn" href="https://procesofibog.unal.edu.co/sefi/login" target="_blank" rel="noopener noreferrer" class="studio-btn-pill text-center font-bold px-10 py-4 text-base">
+                    <!-- BOTÓN PRINCIPAL DE VOTACIÓN DE GRAN TAMAÑO -->
+                    <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+                        <a id="submitVoteBtn" 
+                           href="https://procesofibog.unal.edu.co/sefi/login" 
+                           target="_blank" 
+                           rel="noopener noreferrer" 
+                           class="btn-votar-hero w-full sm:w-auto text-center bg-black text-white text-lg sm:text-xl md:text-2xl font-black py-4 sm:py-5 px-8 sm:px-12 rounded-full hover:bg-neutral-800 transition transform hover:-translate-y-0.5 active:translate-y-0 tracking-wide uppercase">
                             Ir a Votar
                         </a>
 
-                        <a id="downloadBtn" href="pdfs/PropuestasDIEE.pdf" download class="studio-btn-outline text-center font-semibold text-xs">
+                        <a id="downloadBtn" 
+                           href="pdfs/PropuestasDIEE.pdf" 
+                           download 
+                           class="w-full sm:w-auto text-center border-2 border-black text-black font-bold text-xs sm:text-sm py-3.5 px-6 rounded-full hover:bg-black hover:text-white transition">
                             Descargar PDF
                         </a>
                     </div>
@@ -213,19 +180,19 @@
 
         </section>
 
-        <!-- VISOR EMBEBIDO DE PDF -->
-        <section id="visor-seccion" class="space-y-6 pt-8">
-            <div class="flex flex-wrap items-center justify-between gap-4 border-b border-black pb-4">
+        <!-- VISOR DE PDF RESPONSIVE (MOBILE-FIRST) -->
+        <section id="visor-seccion" class="space-y-4 sm:space-y-6 pt-6 sm:pt-8">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-black pb-3">
                 <div>
-                    <span class="text-xs font-mono uppercase text-neutral-400 block mb-1">Plan de trabajo propuesto</span>
-                    <h2 id="currentPdfTitle" class="text-xl md:text-2xl font-black uppercase tracking-tight text-black">
+                    <span class="text-xs font-mono uppercase text-neutral-400 block mb-0.5">Plan de trabajo propuesto</span>
+                    <h2 id="currentPdfTitle" class="text-lg sm:text-2xl font-black uppercase tracking-tight text-black">
                         DIEE - Ingeniería Eléctrica y Electrónica
                     </h2>
                 </div>
             </div>
 
-            <!-- CONTENEDOR IFRAME -->
-            <div class="w-full h-[600px] md:h-[800px] border border-black rounded-2xl overflow-hidden bg-neutral-100 shadow-sm">
+            <!-- CONTENEDOR IFRAME ADAPTADO A PANTALLAS MÓVILES -->
+            <div class="w-full h-[500px] sm:h-[650px] md:h-[800px] border-2 border-black rounded-2xl overflow-hidden bg-neutral-100 shadow-sm">
                 <iframe id="pdfIframe" 
                         src="pdfs/PropuestasDIEE.pdf" 
                         class="w-full h-full border-0" 
@@ -236,24 +203,24 @@
 
     </main>
 
-    <!-- FOOTER -->
-    <footer class="w-full border-t border-black bg-white mt-20 py-10 px-6 md:px-16">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-xs text-black">
-            <div class="space-y-1 text-center md:text-left">
+    <!-- FOOTER MINIMALISTA -->
+    <footer class="w-full border-t border-black bg-white mt-12 sm:mt-20 py-8 px-4 sm:px-8 md:px-16">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-black">
+            <div class="space-y-1 text-center sm:text-left">
                 <p class="font-bold uppercase tracking-wider">Elecciones CAC — 29 de Octubre</p>
                 <p class="text-neutral-500 font-mono">Consejo Académico de Carrera</p>
             </div>
 
-            <div class="flex items-center space-x-6 font-mono">
+            <div class="flex items-center space-x-6 font-mono text-xs">
                 <a href="https://procesofibog.unal.edu.co/sefi/login" target="_blank" rel="noopener noreferrer" class="hover:underline font-bold">Ir a Votar</a>
                 <a href="#selector-seccion" class="hover:underline text-neutral-500">Volver al Selector</a>
             </div>
         </div>
     </footer>
 
-    <!-- LÓGICA DE JAVASCRIPT -->
+    <!-- LÓGICA DE NAVEGACIÓN Y CARGA DE PDFS -->
     <script>
-        // Catálogo privado de PDFs asignados a cada carrera
+        // Mapeo privado de PDFs asignados
         const pdfCatalog = {
             diee: {
                 name: "DIEE - Ingeniería Eléctrica y Electrónica",
@@ -281,24 +248,24 @@
             }
         };
 
-        // Función que actualiza dinámicamente la propuesta visualizada sin exponer rutas en pantalla
+        // Cambia el documento visualizado sin exponer rutas de archivos
         function onCareerChange(key) {
             const data = pdfCatalog[key];
             if (!data) return;
 
-            // Actualizar Iframe
+            // Actualiza Iframe
             const iframe = document.getElementById('pdfIframe');
             iframe.src = data.pdf;
 
-            // Actualizar Título formal
+            // Actualiza título formal del visor
             document.getElementById('currentPdfTitle').textContent = data.name;
 
-            // Actualizar enlace de descarga
+            // Actualiza enlace de descarga
             const downloadBtn = document.getElementById('downloadBtn');
             downloadBtn.href = data.pdf;
         }
 
-        // Inicialización al cargar la ventana
+        // Carga inicial
         window.addEventListener('DOMContentLoaded', () => {
             onCareerChange('diee');
         });
